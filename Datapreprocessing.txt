@@ -1,0 +1,72 @@
+# ML101
+Self Learning
+
+A-Z machine learning
+start/re start
+
+Part 1 Data Pre processing
+0> Start Spyder on machine
+1> Start from Section 2 { Data Pre Processing}
+2> For all the datasets go to https://www.superdatascience.com/pages/machine-learning
+3> For ignoring .idea files in Intellij. Goto file -> Settings -> VCS -> Ignored Files -> Point to .idea folder
+4> Look at Data.csv . The forst three columns are independent variables whras the last column is dependent variable
+
+Import the dataset
+Numpy to include any type of mathematics in our code
+Matpltlib.Pyplot for plotting nice charts
+Pandas for importing and managing datasets
+%.0f 0 0 for number of digits after decimal and f for float
+iloc gets rows (or columns) at particular positions in the index (so it only takes integers).
+
+Missing Data
+
+Replace empty data with missing data
+from sklearn.preprocessing import Imputer -- import Imputer class from preprocessing library
+Impute means assigned to something by inference from the value of the products or processes to which it contributes; estimated.
+Ctrl + I -> For inspecting a class in Spyder/python
+
+
+imputer = Imputer(missing_values='Nan',strategy='mean', axis=0)
+Nan are missing values as per dataset in explorer,
+mean is the strategy using which we are going to replace the missing values
+axis is 0 meaning we are imputing along the columns
+
+imputer.fit(X[:, 1,3])
+X taking all the lines and colunm one and two. 3 is upper bound which is not included
+
+Note Country and Purchased are categorical data simply because they contain categories so now we need to encode that
+since machine learning models are nothing but mathematical equations and we only want numbers in the equations
+
+LabelEncoder will give 0,1,2 for Germany Spain and France
+but since their is no order between all three and all three are independent
+so we do not want ml model to give precedence to France>Spain>Germany.
+So we will add as many columns as categories and in each col for that particular category as 1 and remaining cols will be zero
+
+For Germany
+Germany Spain France
+1       0     0
+
+
+Feature scaling is done so that no variable is dominated by other
+For this we use two techniques
+1> Standardization
+2> Normalization
+
+X{stand} = (x - mean(x))/standard deviation (x)
+
+X{norm} = (x - min(x))/(max(x) - min(x))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
